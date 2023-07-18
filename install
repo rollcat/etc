@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+_os_arch="$(uname -s)-$(uname -m)"
+mkdir -p ~/bin/"${_os_arch}"
+if ! [ -d ./dist/"${_os_arch}"/ ]
+then ./build
+fi
+install ./dist/"${_os_arch}"/* ~/bin/"${_os_arch}"/

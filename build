@@ -1,0 +1,24 @@
+#!/bin/sh
+set -eu
+
+mkdir -p \
+      ./dist/Darwin-x86_64 \
+      ./dist/Darwin-arm64 \
+      ./dist/Linux-x86_64 \
+      ./dist/Linux-aarch64 \
+      ./dist/OpenBSD-amd64 \
+      ./dist/OpenBSD-arm64 \
+      .
+
+go test ./...
+
+for p in $(ls ./cmd); do
+    GOOS=darwin  GOARCH=amd64 go build -o ./dist/Darwin-x86_64/$p ./cmd/$p &
+    GOOS=darwin  GOARCH=arm64 go build -o ./dist/Darwin-arm64/$p  ./cmd/$p &
+    GOOS=linux   GOARCH=amd64 go build -o ./dist/Linux-x86_64/$p  ./cmd/$p &
+    GOOS=linux   GOARCH=arm64 go build -o ./dist/Linux-aarch64/$p ./cmd/$p &
+    GOOS=openbsd GOARCH=amd64 go build -o ./dist/OpenBSD-amd64/$p ./cmd/$p &
+    GOOS=openbsd GOARCH=arm64 go build -o ./dist/OpenBSD-arm64/$p ./cmd/$p &
+done
+
+wait

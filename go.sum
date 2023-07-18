@@ -1,0 +1,4 @@
+github.com/aclements/go-moremath v0.0.0-20210112150236-f10218a38794 h1:xlwdaKcTNVW4PtpQb8aKA4Pjy0CdJHEqvFbAnvR5m2g=
+github.com/aclements/go-moremath v0.0.0-20210112150236-f10218a38794/go.mod h1:7e+I0LQFUI9AXWxOfsQROs9xPhoJtbsyWcjJqDd4KPY=
+github.com/rollcat/getopt v0.0.0-20230716181956-07db84dc9826 h1:jf2NAKfci3M48sFn8N+DKYCEMBZvZDwf9xG9Pmie948=
+github.com/rollcat/getopt v0.0.0-20230716181956-07db84dc9826/go.mod h1:XUhIufqB3iNF3vF5Y9MX5u1YBm5gdFcl7PxM3RilKAg=
